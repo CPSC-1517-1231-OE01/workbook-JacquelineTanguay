@@ -5,7 +5,7 @@
     /// </summary>
     public enum Shot
     {
-        Left,
+        Left = 1,
         Right
     }
 }
