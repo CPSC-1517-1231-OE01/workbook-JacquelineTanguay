@@ -108,13 +108,15 @@
             }
             set
             {
-                // TODO: Implement a validity check for dates in the future
-                // Check the documentation for DateOnly
+                if (value > DateOnly.FromDateTime(DateTime.Now))
+                {
+                    throw new ArgumentException("Date of birth cannot be in the future.")
+                }
                 _dateOfBirth = value;
             }
 
         }
-
+        
         public Position Position { get; set; }
 
         public Shot Shot { get; set; }
@@ -125,7 +127,27 @@
         /// </summary>
         public HockeyPlayer()
         {
-
+            _firstName = string.Empty;
+            _lastName = string.Empty;
+            _birthPlace = string.Empty;
+            _dateOfBirth = new DateOnly();
+            _heightInInches = 0;
+            _weightInPounds = 0;
+            Shot = Shot.Left;
+            Position = Position.Center;
+        }
+        
+        
+        public HockeyPlayer(string firstName, string lastName, string birthPlace, DateOnly DateOfBirth, int weightInPounds, int heightInInches, Position position, Shot shot)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            BirthPlace = birthPlace;
+            HeightInInches = heightInInches;
+            WeightInPounds = weightInPounds;
+            DateOfBirth = dateOfBirth;
+            Position = position;
+            Shot = shot;
         }
     }
 }
