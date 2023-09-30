@@ -1,4 +1,5 @@
-﻿namespace Hockey.Data
+﻿using Utils;
+namespace Hockey.Data
 {
     public class HockeyPlayer
     {
@@ -15,7 +16,7 @@
 
 
         //properties
-        public string BirthPlace 
+        public string BirthPlace
         {
             get
             {
@@ -76,7 +77,7 @@
             }
             set
             {
-                if (value <= 0)
+                if (Utilities.IsZeroOrNegative(value))
                 {
                     throw new ArgumentException("Height must be positive.");
                 }
@@ -116,7 +117,7 @@
             }
 
         }
-        
+
         public Position Position { get; set; }
 
         public Shot Shot { get; set; }
@@ -136,8 +137,18 @@
             Shot = Shot.Left;
             Position = Position.Center;
         }
-        
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="birthPlace"></param>
+        /// <param name="DateOfBirth"></param>
+        /// <param name="weightInPounds"></param>
+        /// <param name="heightInInches"></param>
+        /// <param name="position"></param>
+        /// <param name="shot"></param>
         public HockeyPlayer(string firstName, string lastName, string birthPlace, DateOnly DateOfBirth, int weightInPounds, int heightInInches, Position position, Shot shot)
         {
             FirstName = firstName;

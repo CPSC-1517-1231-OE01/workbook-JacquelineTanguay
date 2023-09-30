@@ -1,7 +1,7 @@
 ﻿namespace Hockey.Data
 {
     /// <summary>
-    /// Represents the available hockey player positions
+    /// Represents the availiable hockey player positions
     /// </summary>
     public enum Position
     {

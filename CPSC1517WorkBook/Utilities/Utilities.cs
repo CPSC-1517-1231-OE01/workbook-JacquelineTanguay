@@ -1,6 +1,6 @@
 ﻿namespace Utils
 {
-    public static class Utilities
+    public class Utilities
     {
         public static bool IsZeroOrNegative(int value)
         {
